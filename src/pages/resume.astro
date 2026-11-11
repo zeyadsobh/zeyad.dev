@@ -1,0 +1,118 @@
+---
+import { parse } from "yaml";
+import raw from "../../resume/resume.yml?raw";
+import Base from "../layouts/Base.astro";
+
+const r = parse(raw);
+const pdf = "/zeyad-sobh-resume.pdf";
+---
+
+<Base title="Resume · Zeyad Sobh" wide>
+  <article class="resume">
+    <header>
+      <h1>{r.name}</h1>
+      <p class="contact">
+        {r.contact.map((c: { text: string; url?: string }) => (c.url ? <a href={c.url}>{c.text}</a> : <span>{c.text}</span>))}
+      </p>
+      <nav>
+        <a href="/">Home</a>
+        <a href={pdf}>View PDF</a>
+        <a href={pdf} download>Download PDF</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Experience</h2>
+      {r.experience.map((e: any) => (
+        <div class="entry">
+          <p class="row"><strong>{e.company}</strong><span>{e.location}</span></p>
+          {e.roles.map((ro: any) => <p class="row role"><em>{ro.title}</em><span>{ro.dates}</span></p>)}
+          <ul>{e.bullets.map((b: string) => <li>{b}</li>)}</ul>
+        </div>
+      ))}
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      {r.education.map((e: any) => (
+        <div class="entry">
+          <p class="row"><strong>{e.school}</strong><span>{e.location}</span></p>
+          <p class="row role"><span>{e.degree} <em>— {e.note}</em></span><span>{e.date}</span></p>
+          {e.extra.map((x: any) => <p class="row role"><em>{x.title}</em><span>{x.dates}</span></p>)}
+        </div>
+      ))}
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      {r.skills.map((s: any) => <p class="skill"><strong>{s.label}:</strong> {s.value}</p>)}
+    </section>
+
+  </article>
+</Base>
+
+<style>
+  .resume header {
+    margin-bottom: 1.5rem;
+  }
+  .contact {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.75rem;
+  }
+  .contact > * {
+    overflow-wrap: anywhere;
+  }
+  .contact a,
+  .resume nav a {
+    color: inherit;
+  }
+  .resume nav {
+    margin-top: 0.75rem;
+  }
+  h2 {
+    font-variant: small-caps;
+    font-weight: 400;
+    font-size: 1.15rem;
+    margin: 2rem 0 0.75rem;
+    padding-bottom: 0.15rem;
+    border-bottom: 1px solid var(--muted);
+  }
+  .entry {
+    margin-bottom: 1.5rem;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    margin: 0;
+    color: var(--fg);
+  }
+  .role {
+    font-size: 0.95rem;
+  }
+  .row > :last-child {
+    margin-left: auto;
+    text-align: right;
+  }
+  @media (max-width: 30rem) {
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+  ul {
+    margin: 0.8rem 0 0;
+    padding-left: 1.4rem;
+  }
+  li {
+    line-height: 1.55;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+  .skill {
+    margin: 0 0 0.25rem;
+    color: var(--fg);
+  }
+</style>

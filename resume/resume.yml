@@ -1,0 +1,42 @@
+name: Zeyad Sobh
+contact:
+  - text: zeyadsobh@outlook.com
+    url: mailto:zeyadsobh@outlook.com
+  - text: linkedin.com/in/zeyadsobh
+    url: https://linkedin.com/in/zeyadsobh
+  - text: github.com/zeyadsobh
+    url: https://github.com/zeyadsobh
+experience:
+  - company: Microsoft
+    location: Cairo, Egypt
+    roles:
+      - {title: Software Engineer II, dates: March 2026 - Present}
+      - {title: Software Engineer, dates: November 2024 - March 2026}
+      - {title: Software Engineer (Contract), dates: March 2024 - November 2024}
+    bullets:
+      - "Sole engineer on the rewrite of a data collection and anonymization service that was dropping 80% of the 25M events sent to it each day; brought the failure rate below 1% and lifted successful throughput from 5M to 25M events/day, and the resulting headroom has since absorbed organic traffic growth and additional collection scenarios."
+      - "Cut median latency from 30s to 7.5s, CPU usage by 80% and memory usage by 33% in that rewrite, mainly by reworking the regex-heavy anonymization pass and the service’s error and non-happy-path handling."
+      - "Co-own the parent production service with the team’s tech lead, and own its on-call process end to end: maintain the on-call handbook and run the handover calls for a rotation of 10+ engineers."
+      - "Lead developer on Microsoft Shopping’s data reporting stack for conversion and gross merchandise value (GMV); shipping decisions are made against it, and it is the source for leadership and org-wide reporting."
+      - "Built the experimentation flows and partner support on top of that reporting stack that let 4 partner teams measure the effect of their own A/B experiments."
+      - "Built the website classifier behind Microsoft Edge’s Shopping experience, co-designed with senior engineers: it combines deterministic rule-based signals with the output of existing classifiers to assign each domain a commerce category (shopping, travel, and similar), and is evaluated on every domain visit in Edge."
+      - "Shipped a validation layer over the shopping-journey extraction pipelines, checking more than 5M extractions per day and surfacing broken extractions so the failing extractor can be repaired; pairs custom parsers for syntactic checks with model-backed semantic validation."
+      - "Review technical designs for adjacent workstreams on the team, and interview software engineering candidates at intern, junior and mid-level."
+  - company: Microsoft
+    location: Cairo, Egypt
+    roles:
+      - {title: Software Engineer (Intern), dates: July 2022 - March 2023}
+    bullets:
+      - "Cut project creation time by 90% for customers building Conversational Language Understanding (CLU) projects via the Azure Portal and SDK, by profiling hot paths and optimizing a string deduplication routine over 25k items."
+education:
+  - school: Cairo University
+    location: Cairo, Egypt
+    degree: Bachelor of Engineering, Computer Engineering
+    note: GPA 3.7/4.0, with Honors
+    date: July 2023
+    extra:
+      - {title: "Teaching Assistant (part-time), Operating Systems", dates: February 2024 - June 2024}
+skills:
+  - {label: Languages, value: "C#, Python, SQL, C++, TypeScript"}
+  - {label: Cloud & Data, value: "Azure (Functions, Service Bus, Data Factory, Cosmos DB, Kusto/ADX, Application Insights), Databricks, Power BI"}
+  - {label: Frameworks & Tools, value: ".NET, Git, Azure DevOps"}

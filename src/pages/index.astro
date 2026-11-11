@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+
+const links = [
+  { label: "Resume", href: "/resume/" },
+  { label: "GitHub", href: "https://github.com/zeyadsobh" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/zeyadsobh" },
+  { label: "Email", href: "mailto:zeyadsobh@outlook.com" },
+];
+---
+
+<Base>
+  <h1>Zeyad Sobh</h1>
+  <p>Software Engineer II at Microsoft, working on Shopping.</p>
+  <nav>
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+  </nav>
+</Base>
